@@ -12,11 +12,35 @@ import Link from "@material-ui/core/Link"
 import Radio from "@material-ui/core/Radio"
 import RadioGroup from "@material-ui/core/RadioGroup"
 import React from "react"
-import TextField from "@material-ui/core/TextField"
 import Typography from "@material-ui/core/Typography"
 import { useFormik } from "formik"
 
-const validationSchema = yup.object({
+const validationSchemaDentiste = yup.object({
+  firstName: yup
+    .string("Entrez le nom de famille")
+    .trim()
+    .min(2, "Merci d'entrer un nom valide avec au moins 2 caractères")
+    .max(50, "Merci d'entrer un nom valide avec maximum 50 caractères")
+    .required("Merci de renseigner votre nom de famille"),
+  lastName: yup
+    .string("Entrez le prénom")
+    .trim()
+    .min(2, "Merci d'entrer un prénom valide avec au moins 2 caractères")
+    .max(50, "Merci d'entrer un prénom valide avec maximum 50 caractères")
+    .required("Merci de renseigner votre prénom"),
+  email: yup
+    .string("Entrez votre e-mail")
+    .trim()
+    .email("Merci d'entrer une adresse e-mail valide")
+    .required("Le champ e-mail est requis"),
+  address: yup.string(),
+  city: yup.string(),
+  cp: yup.string(),
+  code1: yup.string(),
+  code2: yup.string(),
+})
+
+const validationSchemaFournisseur = yup.object({
   firstName: yup
     .string("Entrez le nom de famille")
     .trim()
@@ -41,24 +65,48 @@ const validationSchema = yup.object({
 })
 
 const Form = () => {
-  const initialValues = {
+  const [radioValue, setRadioValue] = React.useState("dentiste")
+  const initialFournisseurValues = {
     firstName: "",
     lastName: "",
     email: "",
     password: "",
+    address: "",
+    city: "",
+    cp: "",
+    code1: "",
+    code2: "",
   }
 
-  const onSubmit = (values) => {
+  const initialDentisteValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    address: "",
+    city: "",
+    cp: "",
+    code1: "",
+    code2: "",
+  }
+
+  const onSubmit = (values,{resetForm}) => {
+    console.log(values)
+    //resetForm()
     return values
   }
 
   const formik = useFormik({
-    initialValues,
-    validationSchema: validationSchema,
+    initialValues:
+      radioValue === "dentiste"
+        ? initialDentisteValues
+        : initialFournisseurValues,
+    validationSchema:
+      radioValue === "dentiste"
+        ? validationSchemaDentiste
+        : validationSchemaFournisseur,
     onSubmit,
   })
-
-  const [radioValue, setRadioValue] = React.useState("dentiste")
 
   const handleRadioChange = (event) => {
     setRadioValue(event.target.value)

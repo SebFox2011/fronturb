@@ -1,14 +1,14 @@
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Link from '@material-ui/core/Link';
-import MenuIcon from '@material-ui/icons/Menu';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { colors } from '@material-ui/core';
-import logo from '../../../../turbine_dentaire.png';
-import paletteTypes from '../../../../common/paletteTypes';
-import { useTheme } from '@material-ui/core/styles';
+import Box from "@material-ui/core/Box"
+import Button from "@material-ui/core/Button"
+import IconButton from "@material-ui/core/IconButton"
+import Link from "@material-ui/core/Link"
+import MenuIcon from "@material-ui/icons/Menu"
+import PropTypes from "prop-types"
+import React from "react"
+import { colors } from "@material-ui/core"
+import logo from "../../../../turbine_dentaire.png"
+import paletteTypes from "../../../../common/paletteTypes"
+import { useTheme } from "@material-ui/core/styles"
 
 const Topbar = ({
   themeMode,
@@ -17,22 +17,22 @@ const Topbar = ({
   onSidebarOpen,
   paletteType,
 }) => {
-  const theme = useTheme();
+  const theme = useTheme()
   return (
     <Box
-      display={'flex'}
-      justifyContent={'space-between'}
-      alignItems={'center'}
-      width={'100%'}
+      display={"flex"}
+      justifyContent={"space-between"}
+      alignItems={"center"}
+      width={"100%"}
     >
-      <Box display={'flex'} alignItems={'center'}>
+      <Box display={"flex"} alignItems={"center"}>
         <Box marginRight={{ xs: 1, sm: 2 }}>
           <IconButton onClick={onSidebarOpen} aria-label="Menu">
             <MenuIcon />
           </IconButton>
         </Box>
         <Box
-          display={'flex'}
+          display={"flex"}
           alignItems="baseline"
           component="a"
           underline="none"
@@ -45,9 +45,9 @@ const Topbar = ({
           {/* <WebbeeLogo height={'100%'} width={'100%'} /> */}
         </Box>
       </Box>
-      <Box display="flex" alignItems={'center'}>
+      <Box display="flex" alignItems={"center"}>
         <Box
-          display={'flex'}
+          display={"flex"}
           padding={1}
           borderRadius={8}
           bgcolor={theme.palette.alternate.main}
@@ -58,12 +58,12 @@ const Topbar = ({
               bgcolor={colors[item][700]}
               width={20}
               height={20}
-              borderRadius={'100%'}
+              borderRadius={"100%"}
               marginRight={i === paletteTypes.length - 1 ? 0 : 1}
-              display={'flex'}
-              justifyContent={'center'}
-              alignItems={'center'}
-              sx={{ cursor: 'pointer' }}
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              sx={{ cursor: "pointer" }}
               onClick={() => setThemePalette(item)}
             >
               {paletteType === item && (
@@ -88,9 +88,9 @@ const Topbar = ({
           <IconButton
             onClick={() => themeToggler()}
             aria-label="Dark mode toggler"
-            color={themeMode === 'light' ? 'primary' : 'secondary'}
+            color={themeMode === "light" ? "primary" : "secondary"}
           >
-            {themeMode === 'light' ? (
+            {themeMode === "light" ? (
               <svg
                 width={24}
                 height={24}
@@ -125,20 +125,10 @@ const Topbar = ({
             )}
           </IconButton>
         </Box>
-        <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
-          <Box>
-            <Link underline="none" component="a" href="/" color="textPrimary">
-              Home
-            </Link>
-          </Box>
+        <Box sx={{ display: { xs: "none", md: "flex" } }} alignItems={"center"}>
           <Box marginX={2}>
-            <Link
-              underline="none"
-              component="a"
-              href="/docs-introduction"
-              color="textPrimary"
-            >
-              Documentation
+            <Link underline="none" component="a" href="/" color="textPrimary">
+              Accueil
             </Link>
           </Box>
           <Box>
@@ -147,17 +137,17 @@ const Topbar = ({
               color="primary"
               component="a"
               target="blank"
-              href="https://material-ui.com/store/items/webbee-landing-page/"
+              href="https://lazuryte.fr"
               size="large"
             >
-              Purchase now
+              Catalogue
             </Button>
           </Box>
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
 Topbar.propTypes = {
   onSidebarOpen: PropTypes.func,
@@ -165,6 +155,6 @@ Topbar.propTypes = {
   themeMode: PropTypes.string.isRequired,
   setThemePalette: PropTypes.func.isRequired,
   paletteType: PropTypes.string.isRequired,
-};
+}
 
-export default Topbar;
+export default Topbar

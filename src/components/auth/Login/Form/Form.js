@@ -1,5 +1,7 @@
 import * as yup from "yup"
 
+import React, { useState } from "react"
+
 import Box from "@material-ui/core/Box"
 import Button from "@material-ui/core/Button"
 import { Checkbox } from "@material-ui/core"
@@ -8,7 +10,6 @@ import FormControlLabel from "@material-ui/core/FormControlLabel"
 import FormGroup from "@material-ui/core/FormGroup"
 import Grid from "@material-ui/core/Grid"
 import Link from "@material-ui/core/Link"
-import React from "react"
 import TextField from "@material-ui/core/TextField"
 import Typography from "@material-ui/core/Typography"
 import { useFormik } from "formik"
@@ -29,12 +30,15 @@ const validationSchema = yup.object({
 })
 
 const Form = () => {
+  const [seePassword, setSeePassword] = useState(false)
+  const [openSession,setOpenSession] = useState(false)
   const initialValues = {
     email: "",
     password: "",
   }
 
   const onSubmit = (values) => {
+    console.log(values)
     return values
   }
 
@@ -116,9 +120,8 @@ const Form = () => {
               label="Password *"
               variant="outlined"
               name={"password"}
-              type={"password"}
+              type={seePassword ? "text" : "password"}
               fullWidth
-              visible
               value={formik.values.password}
               onChange={formik.handleChange}
               error={formik.touched.password && Boolean(formik.errors.password)}
@@ -138,8 +141,10 @@ const Form = () => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={false}
-                        onChange={() => {}}
+                        checked={seePassword}
+                        onChange={() =>
+                          setSeePassword((seePassword) => !seePassword)
+                        }
                         name="voir-mot-de-passe"
                       />
                     }
@@ -148,8 +153,8 @@ const Form = () => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={false}
-                        onChange={() => {}}
+                        checked={openSession}
+                        onChange={() =>setOpenSession(openSession => !openSession)}
                         name="maintenir-la-session"
                       />
                     }

@@ -1,4 +1,3 @@
-import FormControl from "@material-ui/core/FormControl"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import FormGroup from "@material-ui/core/FormGroup"
 import Grid from "@material-ui/core/Grid"
@@ -86,13 +85,11 @@ const Dentiste = ({ formik }) => {
         />
       </Grid>
       <Grid item xs={12}>
-        <FormControl component="fieldset">
-          <FormControlLabel
-            value="adresseLivraison"
-            control={<Radio />}
-            label="Adresse de livraison identique à celle de facturation ?"
-          />
-        </FormControl>
+        <FormControlLabel
+          value="adresseLivraison"
+          control={<Radio />}
+          label="Adresse de livraison identique à celle de facturation ?"
+        />
       </Grid>
       <Grid item xs={12}>
         <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>
@@ -110,27 +107,25 @@ const Dentiste = ({ formik }) => {
         />
       </Grid>
       <Grid item xs={12}>
-        <FormControl component="fieldset">
-          <FormGroup>
-            <RadioGroup
-              aria-label="gender"
-              name="gender1"
-              value={radioValue}
-              onChange={handleRadioChange}
-            >
-              <FormControlLabel
-                value="dentiste"
-                control={<Radio />}
-                label="Accéder à l'identification bancaire sécurisée"
-              />
-              <FormControlLabel
-                value="fournisseur"
-                control={<Radio />}
-                label="Rapporter lors de mes premières commandes"
-              />
-            </RadioGroup>
-          </FormGroup>
-        </FormControl>
+        <FormGroup>
+          <RadioGroup
+            aria-label="gender"
+            name="gender1"
+            value={radioValue}
+            onChange={handleRadioChange}
+          >
+            <FormControlLabel
+              value="dentiste"
+              control={<Radio />}
+              label="Accéder à l'identification bancaire sécurisée"
+            />
+            <FormControlLabel
+              value="fournisseur"
+              control={<Radio />}
+              label="Rapporter lors de mes premières commandes"
+            />
+          </RadioGroup>
+        </FormGroup>
       </Grid>
       <Grid item xs={12}>
         <Typography variant={"subtitle2"} sx={{ marginBottom: 2 }}>

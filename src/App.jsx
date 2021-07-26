@@ -1,8 +1,12 @@
 import "./App.css"
 
-import { Route, Router, Switch } from "react-router-dom"
+import {
+  Fixed as FixedLayout,
+  Fluid as FluidLayout,
+  Main as MainLayout,
+} from "./layouts"
+import { Link, Route, Router, Switch } from "react-router-dom"
 
-import FluidLayout from './layouts/Fluid'
 //import AppBar from "./components/PrimarySearchAppBar"
 import ForgotPassword from "./components/auth/ForgotPassword/ForgotPassword"
 import Login from "./components/auth/Login/Login"
@@ -35,13 +39,27 @@ function App() {
               />
             )}
           />
-          <Route
-            exact
-            path="/page-forgot-password"
-            component={ForgotPassword}
-          />
-          <Route exact path="/page-login" component={Login} />
-          <Route exact path="/page-signup" component={Signup} />
+          <Route exact path="/page-forgot-password" render={(matchProps) => (
+              <WithLayout
+                {...matchProps}
+                component={ForgotPassword}
+                layout={FluidLayout}
+              />
+            )} />
+          <Route exact path="/page-login" render={(matchProps) => (
+              <WithLayout
+                {...matchProps}
+                component={Login}
+                layout={FluidLayout}
+              />
+            )} />
+          <Route exact path="/page-signup" render={(matchProps) => (
+              <WithLayout
+                {...matchProps}
+                component={Signup}
+                layout={FluidLayout}
+              />
+            )} />
         </Switch>
       </Router>
     </div>

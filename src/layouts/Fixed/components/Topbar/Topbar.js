@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
-import { useTheme } from '@material-ui/core/styles';
-import { colors } from '@material-ui/core';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import WebbeeLogo from 'svg/logos/Webbee';
-import paletteTypes from 'common/paletteTypes';
+import Box from "@material-ui/core/Box"
+import Button from "@material-ui/core/Button"
+import IconButton from "@material-ui/core/IconButton"
+import Link from "@material-ui/core/Link"
+import MenuIcon from "@material-ui/icons/Menu"
+import PropTypes from "prop-types"
+import React from "react"
+import { colors } from "@material-ui/core"
+import logo from "../../../../turbine_dentaire.png"
+import paletteTypes from "../../../../common/paletteTypes"
+import { useTheme } from "@material-ui/core/styles"
 
 const Topbar = ({
   themeMode,
@@ -17,22 +17,25 @@ const Topbar = ({
   onSidebarOpen,
   paletteType,
 }) => {
-  const theme = useTheme();
+  const theme = useTheme()
   return (
     <Box
-      display={'flex'}
-      justifyContent={'space-between'}
-      alignItems={'center'}
-      width={'100%'}
+      display={"flex"}
+      justifyContent={"space-between"}
+      alignItems={"center"}
+      width={"100%"}
     >
-      <Box display={'flex'} alignItems={'center'}>
-        <Box marginRight={{ xs: 1, sm: 2 }} sx={{ display: { md: 'none', sm: 'block' } }}>
+      <Box display={"flex"} alignItems={"center"}>
+        <Box
+          marginRight={{ xs: 1, sm: 2 }}
+          sx={{ display: { md: "none", sm: "block" } }}
+        >
           <IconButton onClick={onSidebarOpen} aria-label="Menu">
             <MenuIcon />
           </IconButton>
         </Box>
         <Box
-          display={'flex'}
+          display={"flex"}
           alignItems="baseline"
           component="a"
           underline="none"
@@ -41,12 +44,12 @@ const Topbar = ({
           height={{ xs: 28, md: 32 }}
           width={45}
         >
-          <WebbeeLogo height={'100%'} width={'100%'} />
+          <img src={logo} className="App-logo" alt="logo" />
         </Box>
       </Box>
-      <Box display="flex" alignItems={'center'}>
+      <Box display="flex" alignItems={"center"}>
         <Box
-          display={'flex'}
+          display={"flex"}
           padding={1}
           borderRadius={8}
           bgcolor={theme.palette.alternate.main}
@@ -57,12 +60,12 @@ const Topbar = ({
               bgcolor={colors[item][700]}
               width={20}
               height={20}
-              borderRadius={'100%'}
+              borderRadius={"100%"}
               marginRight={i === paletteTypes.length - 1 ? 0 : 1}
-              display={'flex'}
-              justifyContent={'center'}
-              alignItems={'center'}
-              sx={{ cursor: 'pointer' }}
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              sx={{ cursor: "pointer" }}
               onClick={() => setThemePalette(item)}
             >
               {paletteType === item && (
@@ -87,9 +90,9 @@ const Topbar = ({
           <IconButton
             onClick={() => themeToggler()}
             aria-label="Dark mode toggler"
-            color={themeMode === 'light' ? 'primary' : 'secondary'}
+            color={themeMode === "light" ? "primary" : "secondary"}
           >
-            {themeMode === 'light' ? (
+            {themeMode === "light" ? (
               <svg
                 width={24}
                 height={24}
@@ -124,7 +127,7 @@ const Topbar = ({
             )}
           </IconButton>
         </Box>
-        <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
+        <Box sx={{ display: { xs: "none", md: "flex" } }} alignItems={"center"}>
           <Box marginRight={2}>
             <Link underline="none" component="a" href="/" color="textPrimary">
               Home
@@ -136,17 +139,17 @@ const Topbar = ({
               color="primary"
               component="a"
               target="blank"
-              href="https://material-ui.com/store/items/webbee-landing-page/"
+              href="https://lazuryte.fr"
               size="large"
             >
-              Purchase now
+              Acheter
             </Button>
           </Box>
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
 Topbar.propTypes = {
   onSidebarOpen: PropTypes.func,
@@ -154,6 +157,6 @@ Topbar.propTypes = {
   themeMode: PropTypes.string.isRequired,
   setThemePalette: PropTypes.func.isRequired,
   paletteType: PropTypes.string.isRequired,
-};
+}
 
-export default Topbar;
+export default Topbar

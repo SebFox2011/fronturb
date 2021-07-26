@@ -1,14 +1,15 @@
+import { Footer, Sidebar, Topbar } from './components';
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@material-ui/core/styles';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Divider from '@material-ui/core/Divider';
+
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
+import Container from '../../common/Container';
+import Divider from '@material-ui/core/Divider';
+import PropTypes from 'prop-types';
 import Slide from '@material-ui/core/Slide';
-import { Topbar, Sidebar, Footer } from './components';
-import Container from 'common/Container';
 import { pages } from '../navigation';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import { useTheme } from '@material-ui/core/styles';
 
 const HideOnScroll = ({ children }) => {
   const trigger = useScrollTrigger();

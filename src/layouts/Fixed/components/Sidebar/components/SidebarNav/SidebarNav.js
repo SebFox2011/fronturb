@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { alpha, useTheme } from '@material-ui/core/styles';
+
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 
 const SidebarNav = ({ pages, onClose }) => {
   const theme = useTheme();
@@ -68,7 +69,7 @@ const SidebarNav = ({ pages, onClose }) => {
       </Box>
       <Box>
         <Button variant="outlined" fullWidth component="a" href="/">
-          Browse pages
+          Parcourir les pages
         </Button>
       </Box>
       <Box marginTop={1}>
@@ -78,9 +79,9 @@ const SidebarNav = ({ pages, onClose }) => {
           fullWidth
           component="a"
           target="blank"
-          href="https://material-ui.com/store/items/webbee-landing-page/"
+          href="https:/lazuryte.fr/"
         >
-          Purchase now
+          Acheter
         </Button>
       </Box>
     </Box>
