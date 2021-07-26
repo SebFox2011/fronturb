@@ -1,25 +1,24 @@
 export const pages = [
   {
-    title: 'Catalogue',
-    id: 'catalogue',
+    title: "Catalogue",
+    id: "catalogue",
     pages: [
       {
-        title: 'Restauratrice',
-        href: '/Restauratrice',
+        title: "Restauratrice",
+        href: "/Restauratrice",
       },
       {
-        title: 'Endodontie',
-        href: '/Endodontie',
+        title: "Endodontie",
+        href: "/Endodontie",
       },
       {
-        title: 'Fraises  / Polissage',
-        href: '/Fraises-Polissage',
+        title: "Fraises  / Polissage",
+        href: "/Fraises-Polissage",
       },
       {
-        title: 'Empreintes',
-        href: '/Empreintes',
+        title: "Empreintes",
+        href: "/Empreintes",
       },
-      
     ],
-  }
-];
+  },
+]

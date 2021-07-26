@@ -1,14 +1,14 @@
-import { Footer, Sidebar, Topbar } from './components';
-import React, { useState } from 'react';
+import { Footer, Sidebar, Topbar } from "./components"
+import React, { useState } from "react"
 
-import AppBar from '@material-ui/core/AppBar';
-import Box from '@material-ui/core/Box';
-import Container from '../../common/Container';
-import Divider from '@material-ui/core/Divider';
-import PropTypes from 'prop-types';
-import { pages } from '../navigation';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core';
+import AppBar from "@material-ui/core/AppBar"
+import Box from "@material-ui/core/Box"
+import Container from "../../common/Container"
+import Divider from "@material-ui/core/Divider"
+import PropTypes from "prop-types"
+import { pages } from "../navigation"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
+import { useTheme } from "@material-ui/core"
 
 const Fixed = ({
   children,
@@ -17,30 +17,30 @@ const Fixed = ({
   setThemePalette,
   paletteType,
 }) => {
-  const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+  const theme = useTheme()
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
     defaultMatches: true,
-  });
-  const [openSidebar, setOpenSidebar] = useState(false);
+  })
+  const [openSidebar, setOpenSidebar] = useState(false)
 
   const handleSidebarOpen = () => {
-    setOpenSidebar(true);
-  };
+    setOpenSidebar(true)
+  }
 
   const handleSidebarClose = () => {
-    setOpenSidebar(false);
-  };
+    setOpenSidebar(false)
+  }
 
   return (
     <Box height="100%" overflow="hidden" width="100%">
       <AppBar
-        position={'fixed'}
+        position={"fixed"}
         sx={{
           backgroundColor: theme.palette.background.paper,
         }}
         elevation={0}
       >
-        <Container paddingY={{ xs: 1 / 2, sm: 1 }} maxWidth={{ md: '100%' }}>
+        <Container paddingY={{ xs: 1 / 2, sm: 1 }} maxWidth={{ md: "100%" }}>
           <Topbar
             onSidebarOpen={handleSidebarOpen}
             themeMode={themeMode}
@@ -54,7 +54,7 @@ const Fixed = ({
       <Sidebar
         onClose={handleSidebarClose}
         open={openSidebar}
-        variant={isMd ? 'permanent' : 'temporary'}
+        variant={isMd ? "permanent" : "temporary"}
         pages={pages}
       />
       <main>
@@ -63,7 +63,7 @@ const Fixed = ({
           display="flex"
           flex="1 1 auto"
           overflow="hidden"
-          paddingLeft={{ md: '256px' }}
+          paddingLeft={{ md: "256px" }}
         >
           <Box display="flex" flex="1 1 auto" overflow="hidden">
             <Box flex="1 1 auto" height="100%" overflow="auto">
@@ -77,8 +77,8 @@ const Fixed = ({
         </Box>
       </main>
     </Box>
-  );
-};
+  )
+}
 
 Fixed.propTypes = {
   children: PropTypes.node,
@@ -86,6 +86,6 @@ Fixed.propTypes = {
   themeMode: PropTypes.string.isRequired,
   setThemePalette: PropTypes.func.isRequired,
   paletteType: PropTypes.string.isRequired,
-};
+}
 
-export default Fixed;
+export default Fixed

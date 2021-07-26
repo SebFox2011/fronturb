@@ -44,7 +44,11 @@ const Topbar = ({
           height={{ xs: 28, md: 32 }}
           width={45}
         >
-          <img src={logo} className="App-logo" alt="logo" />
+          <img
+            src={logo}
+            style={{ height: "2vmin", pointerEvents: "none" }}
+            alt="logo"
+          />
         </Box>
       </Box>
       <Box display="flex" alignItems={"center"}>
@@ -130,7 +134,7 @@ const Topbar = ({
         <Box sx={{ display: { xs: "none", md: "flex" } }} alignItems={"center"}>
           <Box marginRight={2}>
             <Link underline="none" component="a" href="/" color="textPrimary">
-              Home
+              Accueil
             </Link>
           </Box>
           <Box>
@@ -142,7 +146,7 @@ const Topbar = ({
               href="https://lazuryte.fr"
               size="large"
             >
-              Acheter
+              Commander
             </Button>
           </Box>
         </Box>

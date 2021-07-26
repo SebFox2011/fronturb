@@ -25,7 +25,11 @@ const Footer = () => (
           height={24}
           width={35}
         >
-          <img src={logo} className="App-logo" alt="logo" />
+          <img
+            src={logo}
+            style={{ height: "2vmin", pointerEvents: "none" }}
+            alt="logo"
+          />
         </Box>
         <Box display="flex" flexWrap={"wrap"} alignItems={"center"}>
           <Box marginTop={1} marginRight={2}>
@@ -39,6 +43,17 @@ const Footer = () => (
               Accueil
             </Link>
           </Box>
+          <Box marginTop={1} marginRight={2}>
+            <Link
+              underline="none"
+              component="a"
+              href="/docs-introduction"
+              color="textPrimary"
+              variant={"subtitle2"}
+            >
+              Catalogue
+            </Link>
+          </Box>
           <Box marginTop={1}>
             <Button
               variant="outlined"
@@ -48,7 +63,7 @@ const Footer = () => (
               href="https://lazuryte.fr"
               size="small"
             >
-              Catalogue
+              Commander
             </Button>
           </Box>
         </Box>

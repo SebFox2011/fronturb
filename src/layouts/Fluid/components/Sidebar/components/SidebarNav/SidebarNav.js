@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react"
 
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import CloseIcon from '@material-ui/icons/Close';
-import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
-import Link from '@material-ui/core/Link';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import { useTheme } from '@material-ui/core/styles';
+import Box from "@material-ui/core/Box"
+import Button from "@material-ui/core/Button"
+import CloseIcon from "@material-ui/icons/Close"
+import Grid from "@material-ui/core/Grid"
+import IconButton from "@material-ui/core/IconButton"
+import Link from "@material-ui/core/Link"
+import PropTypes from "prop-types"
+import Typography from "@material-ui/core/Typography"
+import { useTheme } from "@material-ui/core/styles"
 
 const SidebarNav = ({ pages, onClose }) => {
-  const theme = useTheme();
-  const [activeLink, setActiveLink] = useState('');
+  const theme = useTheme()
+  const [activeLink, setActiveLink] = useState("")
   useEffect(() => {
-    setActiveLink(window && window.location ? window.location.pathname : '');
-  }, []);
+    setActiveLink(window && window.location ? window.location.pathname : "")
+  }, [])
 
   return (
-    <Box>
+    <Box zIndex={10}>
       <Box
-        display={'flex'}
-        justifyContent={'flex-end'}
+        display={"flex"}
+        justifyContent={"flex-end"}
         onClick={() => onClose()}
       >
         <IconButton>
@@ -36,9 +36,9 @@ const SidebarNav = ({ pages, onClose }) => {
                 variant="caption"
                 sx={{
                   fontWeight: 700,
-                  textTransform: 'uppercase',
+                  textTransform: "uppercase",
                   marginBottom: 1,
-                  display: 'block',
+                  display: "block",
                 }}
               >
                 {item.title}
@@ -48,13 +48,13 @@ const SidebarNav = ({ pages, onClose }) => {
                   <Grid item xs={6} key={i}>
                     <Link
                       variant="body2"
-                      component={'a'}
+                      component={"a"}
                       href={p.href}
-                      color={activeLink === p.href ? 'primary' : 'textPrimary'}
+                      color={activeLink === p.href ? "primary" : "textPrimary"}
                       sx={{
                         fontWeight: activeLink === p.href ? 600 : 400,
-                        '&:hover': {
-                          textDecoration: 'none',
+                        "&:hover": {
+                          textDecoration: "none",
                           color: theme.palette.primary.dark,
                         },
                       }}
@@ -75,7 +75,7 @@ const SidebarNav = ({ pages, onClose }) => {
             component="a"
             href="/docs-introduction"
           >
-            Documentation
+            Catalogue
           </Button>
         </Box>
         <Box marginTop={1}>
@@ -87,17 +87,17 @@ const SidebarNav = ({ pages, onClose }) => {
             target="blank"
             href="https://lazuryte.fr"
           >
-            Acheter
+            Commander
           </Button>
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
 SidebarNav.propTypes = {
   pages: PropTypes.array.isRequired,
   onClose: PropTypes.func,
-};
+}
 
-export default SidebarNav;
+export default SidebarNav

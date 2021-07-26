@@ -25,7 +25,11 @@ const Footer = () => (
           height={24}
           width={35}
         >
-          <img src={logo} className="App-logo" alt="logo" />
+          <img
+            src={logo}
+            style={{ height: "2vmin", pointerEvents: "none" }}
+            alt="logo"
+          />
         </Box>
         <Box display="flex" flexWrap={"wrap"} alignItems={"center"}>
           <Box marginTop={1} marginRight={2}>
@@ -36,7 +40,7 @@ const Footer = () => (
               color="textPrimary"
               variant={"subtitle2"}
             >
-              Home
+              Accueil
             </Link>
           </Box>
           <Box marginTop={1} marginRight={2}>
@@ -47,7 +51,7 @@ const Footer = () => (
               color="textPrimary"
               variant={"subtitle2"}
             >
-              Documentation
+              Catalogue
             </Link>
           </Box>
           <Box marginTop={1}>
@@ -56,10 +60,10 @@ const Footer = () => (
               color="primary"
               component="a"
               target="blank"
-              href="https://lazuryte.fr"
+              href="https://material-ui.com/store/items/webbee-landing-page/"
               size="small"
             >
-              Acheter
+              Commander
             </Button>
           </Box>
         </Box>
@@ -72,7 +76,8 @@ const Footer = () => (
         color="textSecondary"
         gutterBottom
       >
-        &copy; Webbee. 2021, Maccarian. All rights reserved
+        &copy; La Turbine. 2021, crée par Lazuryte Agence Web Design. Tous
+        droits réservés.
       </Typography>
       <Typography
         align={"center"}
@@ -80,10 +85,10 @@ const Footer = () => (
         color="textSecondary"
         component={"p"}
       >
-        When you visit or interact with our sites, services or tools, we or our
-        authorised service providers may use cookies for storing information to
-        help provide you with a better, faster and safer experience and for
-        marketing purposes.
+        Lorsque vous utilisez nos services, vous nous faites confiance pour le
+        traitement de vos informations. Nous savons qu'il s'agit d'une lourde
+        responsabilité, c'est pourquoi nous nous efforçons de les protéger, tout
+        en vous permettant d'en garder le contrôle.
       </Typography>
     </Grid>
   </Grid>

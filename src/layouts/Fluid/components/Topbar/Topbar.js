@@ -33,7 +33,8 @@ const Topbar = ({
         </Box>
         <Box
           display={"flex"}
-          alignItems="baseline"
+          alignItems="center"
+          justifyContent="center"
           component="a"
           underline="none"
           href="/"
@@ -41,8 +42,11 @@ const Topbar = ({
           height={{ xs: 28, md: 32 }}
           width={45}
         >
-          <img src={logo} className="App-logo" alt="logo" />
-          {/* <WebbeeLogo height={'100%'} width={'100%'} /> */}
+          <img
+            src={logo}
+            style={{ height: "2vmin", pointerEvents: "none" }}
+            alt="logo"
+          />
         </Box>
       </Box>
       <Box display="flex" alignItems={"center"}>
@@ -126,9 +130,19 @@ const Topbar = ({
           </IconButton>
         </Box>
         <Box sx={{ display: { xs: "none", md: "flex" } }} alignItems={"center"}>
-          <Box marginX={2}>
+          <Box>
             <Link underline="none" component="a" href="/" color="textPrimary">
               Accueil
+            </Link>
+          </Box>
+          <Box marginX={2}>
+            <Link
+              underline="none"
+              component="a"
+              href="/docs-introduction"
+              color="textPrimary"
+            >
+              Catalogue
             </Link>
           </Box>
           <Box>
@@ -140,7 +154,7 @@ const Topbar = ({
               href="https://lazuryte.fr"
               size="large"
             >
-              Catalogue
+              Commander
             </Button>
           </Box>
         </Box>

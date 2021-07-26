@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { alpha, useTheme } from '@material-ui/core/styles';
+import React, { useEffect, useState } from "react"
+import { alpha, useTheme } from "@material-ui/core/styles"
 
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import CloseIcon from '@material-ui/icons/Close';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
+import Box from "@material-ui/core/Box"
+import Button from "@material-ui/core/Button"
+import CloseIcon from "@material-ui/icons/Close"
+import PropTypes from "prop-types"
+import Typography from "@material-ui/core/Typography"
 
 const SidebarNav = ({ pages, onClose }) => {
-  const theme = useTheme();
-  const [activeLink, setActiveLink] = useState('');
+  const theme = useTheme()
+  const [activeLink, setActiveLink] = useState("")
   useEffect(() => {
-    setActiveLink(window && window.location ? window.location.pathname : '');
-  }, []);
+    setActiveLink(window && window.location ? window.location.pathname : "")
+  }, [])
 
   return (
     <Box>
       <Box
-        justifyContent={'flex-end'}
+        justifyContent={"flex-end"}
         onClick={() => onClose()}
-        sx={{ display: { md: 'none', sm: 'flex' } }}
+        sx={{ display: { md: "none", sm: "flex" } }}
       >
         <CloseIcon fontSize="small" />
       </Box>
@@ -30,9 +30,9 @@ const SidebarNav = ({ pages, onClose }) => {
               variant="caption"
               sx={{
                 fontWeight: 700,
-                textTransform: 'uppercase',
+                textTransform: "uppercase",
                 marginBottom: 1,
-                display: 'block',
+                display: "block",
               }}
             >
               {item.title}
@@ -41,12 +41,12 @@ const SidebarNav = ({ pages, onClose }) => {
               {item.pages.map((p, i) => (
                 <Box marginBottom={1 / 2} key={i}>
                   <Button
-                    component={'a'}
+                    component={"a"}
                     href={p.href}
                     target={p.target}
                     fullWidth
                     sx={{
-                      justifyContent: 'flex-start',
+                      justifyContent: "flex-start",
                       color:
                         activeLink === p.href
                           ? theme.palette.primary.main
@@ -54,7 +54,7 @@ const SidebarNav = ({ pages, onClose }) => {
                       backgroundColor:
                         activeLink === p.href
                           ? alpha(theme.palette.primary.main, 0.1)
-                          : 'transparent',
+                          : "transparent",
                       fontWeight: activeLink === p.href ? 600 : 400,
                     }}
                     onClick={() => onClose()}
@@ -69,7 +69,7 @@ const SidebarNav = ({ pages, onClose }) => {
       </Box>
       <Box>
         <Button variant="outlined" fullWidth component="a" href="/">
-          Parcourir les pages
+          Browse pages
         </Button>
       </Box>
       <Box marginTop={1}>
@@ -79,18 +79,18 @@ const SidebarNav = ({ pages, onClose }) => {
           fullWidth
           component="a"
           target="blank"
-          href="https:/lazuryte.fr/"
+          href="https://lazuryte.fr"
         >
-          Acheter
+          Commander
         </Button>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
 SidebarNav.propTypes = {
   pages: PropTypes.array.isRequired,
   onClose: PropTypes.func,
-};
+}
 
-export default SidebarNav;
+export default SidebarNav

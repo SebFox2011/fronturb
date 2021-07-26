@@ -41,7 +41,11 @@ const Topbar = ({
           height={{ xs: 28, md: 32 }}
           width={45}
         >
-          <img src={logo} className="App-logo" alt="logo" />
+          <img
+            src={logo}
+            style={{ height: "2vmin", pointerEvents: "none" }}
+            alt="logo"
+          />
         </Box>
       </Box>
       <Box display="flex" alignItems={"center"}>
@@ -127,7 +131,7 @@ const Topbar = ({
         <Box sx={{ display: { xs: "none", md: "flex" } }} alignItems={"center"}>
           <Box>
             <Link underline="none" component="a" href="/" color="textPrimary">
-              Home
+              Accueil
             </Link>
           </Box>
           <Box marginX={2}>
@@ -137,7 +141,7 @@ const Topbar = ({
               href="/docs-introduction"
               color="textPrimary"
             >
-              Documentation
+              Catalogue
             </Link>
           </Box>
           <Box>
@@ -146,10 +150,10 @@ const Topbar = ({
               color="primary"
               component="a"
               target="blank"
-              href="https://lazuryte.fr"
+              href="https://material-ui.com/store/items/webbee-landing-page/"
               size="large"
             >
-              Acheter
+              Commander
             </Button>
           </Box>
         </Box>

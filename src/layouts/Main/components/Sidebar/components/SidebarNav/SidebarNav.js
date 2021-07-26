@@ -75,7 +75,7 @@ const SidebarNav = ({ pages, onClose }) => {
             component="a"
             href="/docs-introduction"
           >
-            Documentation
+            Catalogue
           </Button>
         </Box>
         <Box marginTop={1}>
@@ -85,9 +85,9 @@ const SidebarNav = ({ pages, onClose }) => {
             fullWidth
             component="a"
             target="blank"
-            href="https://lazuryte.fr"
+            href="https://material-ui.com/store/items/webbee-landing-page/"
           >
-            Acheter
+            Commander
           </Button>
         </Box>
       </Box>
