@@ -9,7 +9,7 @@ import FormControl from "@material-ui/core/FormControl"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import FormGroup from "@material-ui/core/FormGroup"
 import Grid from "@material-ui/core/Grid"
-import Link from "@material-ui/core/Link"
+import { Link } from "react-router-dom"
 import TextField from "@material-ui/core/TextField"
 import Typography from "@material-ui/core/Typography"
 import { useFormik } from "formik"
@@ -31,14 +31,19 @@ const validationSchema = yup.object({
 
 const Form = () => {
   const [seePassword, setSeePassword] = useState(false)
-  const [openSession,setOpenSession] = useState(false)
+  const [openSession, setOpenSession] = useState(false)
   const initialValues = {
     email: "",
     password: "",
   }
 
   const onSubmit = (values) => {
-    console.log(values)
+    if (values.email === "seb@mail.com" && values.password === "00000000") {
+      localStorage.setItem("isLogged", true)
+      console.log("logged")
+    }
+    else
+    localStorage.setItem("isLogged", false)
     return values
   }
 
@@ -154,7 +159,9 @@ const Form = () => {
                     control={
                       <Checkbox
                         checked={openSession}
-                        onChange={() =>setOpenSession(openSession => !openSession)}
+                        onChange={() =>
+                          setOpenSession((openSession) => !openSession)
+                        }
                         name="maintenir-la-session"
                       />
                     }

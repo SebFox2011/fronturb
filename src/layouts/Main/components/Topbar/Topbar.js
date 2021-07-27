@@ -33,12 +33,11 @@ const Topbar = ({
         </Box>
         <Box
           display={"flex"}
-          alignItems="baseline"
+          alignItems="center"
           component="a"
           underline="none"
           href="/"
           title="webbee"
-          height={{ xs: 28, md: 32 }}
           width={45}
         >
           <img
@@ -144,13 +143,25 @@ const Topbar = ({
               Catalogue
             </Link>
           </Box>
+          <Box marginX={2}>
+            <Button
+              variant="outlined"
+              color="primary"
+              component="a"
+              target="blank"
+              href="/page-login"
+              size="large"
+            >
+              Connexion
+            </Button>
+          </Box>
           <Box>
             <Button
               variant="contained"
               color="primary"
               component="a"
               target="blank"
-              href="https://material-ui.com/store/items/webbee-landing-page/"
+              href="https://lazuryte.fr"
               size="large"
             >
               Commander

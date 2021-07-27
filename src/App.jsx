@@ -5,15 +5,13 @@ import "./scss/slick-slider.scss"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-import {
-  Fluid as FluidLayout,
-  Main as MainLayout,
-} from "./layouts"
-import { Route, Router, Switch } from "react-router-dom"
+import { Redirect, Route, Router, Switch } from "react-router-dom"
 
-//import AppBar from "./components/PrimarySearchAppBar"
 import ForgotPassword from "./components/auth/ForgotPassword/ForgotPassword"
+import Home from "./components/Home"
 import Login from "./components/auth/Login/Login"
+import { Main as MainLayout } from "./layouts"
+import NotFound  from "./components/NotFound/NotFound"
 import React from "react"
 import Signup from "./components/auth/Signup/Signup"
 import WithLayout from "./WithLayout"
@@ -22,6 +20,9 @@ import { createBrowserHistory } from "history"
 const browserHistory = createBrowserHistory()
 
 function App() {
+  const isLoggedIn = localStorage.getItem("isLogged")
+  console.log("home loggin", isLoggedIn)
+
   return (
     <Router history={browserHistory}>
       <Switch>
@@ -31,7 +32,7 @@ function App() {
           render={(matchProps) => (
             <WithLayout
               {...matchProps}
-              component={Signup}
+              component={isLoggedIn === "true" ? Home : Login}
               layout={MainLayout}
             />
           )}
@@ -43,7 +44,7 @@ function App() {
             <WithLayout
               {...matchProps}
               component={ForgotPassword}
-              layout={FluidLayout}
+              layout={MainLayout}
             />
           )}
         />
@@ -51,11 +52,7 @@ function App() {
           exact
           path="/page-login"
           render={(matchProps) => (
-            <WithLayout
-              {...matchProps}
-              component={Login}
-              layout={FluidLayout}
-            />
+            <WithLayout {...matchProps} component={Login} layout={MainLayout} />
           )}
         />
         <Route
@@ -65,11 +62,24 @@ function App() {
             <WithLayout
               {...matchProps}
               component={Signup}
-              layout={FluidLayout}
+              layout={MainLayout}
             />
           )}
         />
+        <Route
+          exact
+          path="/page-not-found"
+          render={(matchProps) => (
+            <WithLayout
+              {...matchProps}
+              component={NotFound}
+              layout={MainLayout}
+            />
+          )}
+        />
+        <Redirect to="/page-not-found" />
       </Switch>
+      
     </Router>
   )
 }

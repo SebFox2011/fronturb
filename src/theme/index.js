@@ -1,7 +1,7 @@
-import { responsiveFontSizes } from '@material-ui/core';
-import { createTheme } from '@material-ui/core/styles';
-import shadows from './shadows';
-import palette from './palette';
+import { createTheme } from "@material-ui/core/styles"
+import palette from "./palette"
+import { responsiveFontSizes } from "@material-ui/core"
+import shadows from "./shadows"
 
 const getTheme = (mode, paletteType) =>
   responsiveFontSizes(
@@ -14,8 +14,8 @@ const getTheme = (mode, paletteType) =>
       typography: {
         fontFamily: '"Inter", sans-serif',
         button: {
-          textTransform: 'none',
-          fontWeight: 'medium',
+          textTransform: "none",
+          fontWeight: "medium",
         },
       },
       zIndex: {
@@ -28,11 +28,11 @@ const getTheme = (mode, paletteType) =>
             label: {
               fontWeight: 600,
             },
-            containedSecondary: mode === 'light' ? { color: 'white' } : {},
+            containedSecondary: mode === "light" ? { color: "white" } : {},
           },
         },
       },
-    }),
-  );
+    })
+  )
 
-export default getTheme;
+export default getTheme

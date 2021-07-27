@@ -18,7 +18,7 @@ const SidebarNav = ({ pages, onClose }) => {
   }, [])
 
   return (
-    <Box>
+    <Box sx={{ paddingTop: 8 }}>
       <Box
         display={"flex"}
         justifyContent={"flex-end"}
@@ -85,7 +85,7 @@ const SidebarNav = ({ pages, onClose }) => {
             fullWidth
             component="a"
             target="blank"
-            href="https://material-ui.com/store/items/webbee-landing-page/"
+            href="https://lazuryte.fr"
           >
             Commander
           </Button>

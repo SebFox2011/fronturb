@@ -60,7 +60,7 @@ const Footer = () => (
               color="primary"
               component="a"
               target="blank"
-              href="https://material-ui.com/store/items/webbee-landing-page/"
+              href="https://lazuryte.fr"
               size="small"
             >
               Commander
