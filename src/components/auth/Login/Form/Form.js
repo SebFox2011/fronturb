@@ -12,6 +12,8 @@ import Grid from "@material-ui/core/Grid"
 import { Link } from "react-router-dom"
 import TextField from "@material-ui/core/TextField"
 import Typography from "@material-ui/core/Typography"
+import { logIn } from '../../../../reducers/currentUser'
+import { useDispatch } from 'react-redux'
 import { useFormik } from "formik"
 
 const validationSchema = yup.object({
@@ -30,6 +32,7 @@ const validationSchema = yup.object({
 })
 
 const Form = () => {
+  const dispatch= useDispatch()
   const [seePassword, setSeePassword] = useState(false)
   const [openSession, setOpenSession] = useState(false)
   const initialValues = {
@@ -44,6 +47,7 @@ const Form = () => {
     }
     else
     localStorage.setItem("isLogged", false)
+    dispatch(logIn(values.email, values.password))
     return values
   }
 

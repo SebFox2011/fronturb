@@ -59,7 +59,7 @@ const NotFound = () => {
               >
                 Oops! Il semblerait que la page demandée n'esiste pas.
                 <br />
-                Si vous pensez que le problem provient de notre site, {' '}
+                Si vous pensez que le problème provient de notre site, {' '}
                 <Link href={'#0'} underline="none">
                 dites le nous
                 </Link>
