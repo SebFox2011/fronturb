@@ -6,10 +6,11 @@ import MenuIcon from "@material-ui/icons/Menu"
 import PropTypes from "prop-types"
 import React from "react"
 import { colors } from "@material-ui/core"
+import { logOut } from "../../../../reducers/currentUser"
 import logo from "../../../../turbine_dentaire.png"
 import paletteTypes from "../../../../common/paletteTypes"
+import { useDispatch } from "react-redux"
 import { useTheme } from "@material-ui/core/styles"
-
 const Topbar = ({
   themeMode,
   themeToggler,
@@ -17,7 +18,13 @@ const Topbar = ({
   onSidebarOpen,
   paletteType,
 }) => {
+  const dispatch = useDispatch()
   const theme = useTheme()
+
+  const handleDeconnexion = (event)=> {
+    event.preventDefault()
+    dispatch(logOut())
+  }
   return (
     <Box
       display={"flex"}
@@ -147,12 +154,13 @@ const Topbar = ({
             <Button
               variant="outlined"
               color="primary"
-              component="a"
+              //component="a"
               target="blank"
-              href="/page-login"
+              href="/"
               size="large"
+              onClick={handleDeconnexion}
             >
-              Connexion
+              Déconnexion
             </Button>
           </Box>
           <Box>

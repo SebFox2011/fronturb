@@ -26,7 +26,7 @@ export default function reduceCurrentUser(
     }
 
     case LOGOUT:
-      return { loginState: "logged-out" }
+      return { loginState: "logged-out", email: "" }
 
     default:
       return state
@@ -39,6 +39,7 @@ export default function reduceCurrentUser(
 export function logIn(email, password) {
   return {
     type: LOGIN_START,
+    //payload: { email, password },
     meta: {
       offline: {
         effect: {

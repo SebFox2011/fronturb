@@ -22,8 +22,6 @@ const browserHistory = createBrowserHistory()
 
 function App() {
   const loginState = useSelector((state) => state.currentUser.loginState)
-  console.log("home loggin", loginState)
-
   return (
     <Router history={browserHistory}>
       <Switch>

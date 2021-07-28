@@ -4,7 +4,7 @@ const router = new express.Router()
 let fail = false
 
 router.get("/sessions", async (req, res) => {
-  res.status(200).json('Server ok')
+  res.status(200).json("Server ok")
 })
 
 router.post("/sessions", async (req, res) => {
@@ -17,7 +17,8 @@ router.post("/sessions", async (req, res) => {
   const { email = "", password = "" } = req.body
   const [prefix] = email.split("@")
   if (prefix.toLowerCase() === String(password).toLowerCase()) {
-    res.status(201).json({ status: "authenticated" })
+    console.log(email)
+    res.status(201).json({ status: "authenticated", email })
   } else {
     res.status(401).json({ status: "authentication failed" })
   }
