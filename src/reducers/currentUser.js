@@ -1,32 +1,32 @@
 // Types d’actions
 // ---------------
 
-const LOGIN_FAILURE = 'turbine/currentUser/AUTH_LOGIN_FAILURE'
-const LOGIN_START = 'turbine/currentUser/AUTH_LOGIN_START'
-const LOGIN_SUCCESS = 'turbine/currentUser/AUTH_LOGIN_SUCCESS'
-const LOGOUT = 'turbine/currentUser/AUTH_LOGOUT'
+const LOGIN_FAILURE = "turbine/currentUser/AUTH_LOGIN_FAILURE"
+const LOGIN_START = "turbine/currentUser/AUTH_LOGIN_START"
+const LOGIN_SUCCESS = "turbine/currentUser/AUTH_LOGIN_SUCCESS"
+const LOGOUT = "turbine/currentUser/AUTH_LOGOUT"
 
 // Réducteur
 // ---------
 
 export default function reduceCurrentUser(
-  state = { loginState: 'logged-out' },
+  state = { loginState: "logged-out" },
   action
 ) {
   switch (action.type) {
     case LOGIN_START:
-      return { loginState: 'pending' }
+      return { loginState: "pending" }
 
     case LOGIN_FAILURE:
-      return { loginState: 'failure' }
+      return { loginState: "failure" }
 
     case LOGIN_SUCCESS: {
       const { email } = action.payload
-      return { loginState: 'logged-in', email }
+      return { loginState: "logged-in", email }
     }
 
     case LOGOUT:
-      return { loginState: 'logged-out' }
+      return { loginState: "logged-out" }
 
     default:
       return state
@@ -43,8 +43,8 @@ export function logIn(email, password) {
       offline: {
         effect: {
           json: { email, password },
-          method: 'POST',
-          url: 'http://localhost:3001/api/v1/sessions',
+          method: "POST",
+          url: "http://localhost:3002/api/v1/sessions",
         },
         commit: { type: LOGIN_SUCCESS, payload: { email } },
         rollback: { type: LOGIN_FAILURE },

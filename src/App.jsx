@@ -12,82 +12,75 @@ import Home from "./components/Home"
 import Login from "./components/auth/Login/Login"
 import { Main as MainLayout } from "./layouts"
 import NotFound from "./components/NotFound/NotFound"
-import { Provider } from "react-redux"
 import React from "react"
 import Signup from "./components/auth/Signup/Signup"
 import WithLayout from "./WithLayout"
 import { createBrowserHistory } from "history"
-import store from "./store"
+import { useSelector } from "react-redux"
 
 const browserHistory = createBrowserHistory()
 
 function App() {
-  const isLoggedIn = localStorage.getItem("isLogged")
-  console.log("home loggin", isLoggedIn)
+  const loginState = useSelector((state) => state.currentUser.loginState)
+  console.log("home loggin", loginState)
 
   return (
-    <Provider store={store}>
-      <Router history={browserHistory}>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={(matchProps) => (
-              <WithLayout
-                {...matchProps}
-                component={isLoggedIn === "true" ? Home : Login}
-                layout={MainLayout}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/page-forgot-password"
-            render={(matchProps) => (
-              <WithLayout
-                {...matchProps}
-                component={ForgotPassword}
-                layout={MainLayout}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/page-login"
-            render={(matchProps) => (
-              <WithLayout
-                {...matchProps}
-                component={Login}
-                layout={MainLayout}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/page-signup"
-            render={(matchProps) => (
-              <WithLayout
-                {...matchProps}
-                component={Signup}
-                layout={MainLayout}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/page-not-found"
-            render={(matchProps) => (
-              <WithLayout
-                {...matchProps}
-                component={NotFound}
-                layout={MainLayout}
-              />
-            )}
-          />
-          <Redirect to="/page-not-found" />
-        </Switch>
-      </Router>
-    </Provider>
+    <Router history={browserHistory}>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(matchProps) => (
+            <WithLayout
+              {...matchProps}
+              component={loginState === "logged-in" ? Home : Login}
+              layout={MainLayout}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/page-forgot-password"
+          render={(matchProps) => (
+            <WithLayout
+              {...matchProps}
+              component={ForgotPassword}
+              layout={MainLayout}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/page-login"
+          render={(matchProps) => (
+            <WithLayout {...matchProps} component={Login} layout={MainLayout} />
+          )}
+        />
+        <Route
+          exact
+          path="/page-signup"
+          render={(matchProps) => (
+            <WithLayout
+              {...matchProps}
+              component={Signup}
+              layout={MainLayout}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/page-not-found"
+          render={(matchProps) => (
+            <WithLayout
+              {...matchProps}
+              component={NotFound}
+              layout={MainLayout}
+            />
+          )}
+        />
+        <Redirect to="/page-not-found" />
+      </Switch>
+    </Router>
   )
 }
 
