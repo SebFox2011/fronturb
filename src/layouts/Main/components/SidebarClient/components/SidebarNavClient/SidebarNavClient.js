@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-
+import { useSelector } from "react-redux"
 import Box from "@material-ui/core/Box"
 import Button from "@material-ui/core/Button"
 import CloseIcon from "@material-ui/icons/Close"
@@ -12,6 +12,7 @@ import { useTheme } from "@material-ui/core/styles"
 import { useHistory } from "react-router-dom"
 
 const SidebarNavClient = ({ pages, onClose }) => {
+  const email = useSelector((state) => state.currentUser.email)
   const history = useHistory()
   const theme = useTheme()
   const [activeLink, setActiveLink] = useState("")
@@ -35,6 +36,9 @@ const SidebarNavClient = ({ pages, onClose }) => {
         <IconButton>
           <CloseIcon fontSize="small" />
         </IconButton>
+      </Box>
+      <Box paddingX={2} paddingBottom={2} display={"flex"}>
+        <h3>{`Bonjour ${email}`} </h3>
       </Box>
       <Box paddingX={2} paddingBottom={2} display={"flex"}>
         <Box marginRight={1}>

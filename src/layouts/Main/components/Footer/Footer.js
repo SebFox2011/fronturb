@@ -21,7 +21,7 @@ const Footer = () => (
           component="a"
           underline="none"
           href="/"
-          title="webbee"
+          title="La Turbine"
           height={24}
           width={35}
         >

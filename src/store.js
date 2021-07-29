@@ -6,8 +6,8 @@ import turbineReducer from "./reducers"
 
 const DEFAULT_STORE = {
   currentUser: {
-    loginState: "logged-in",
-    email: "christophe@delicious-insights.com",
+    loginState: "logged-out",
+    email: "",
   },
 }
 

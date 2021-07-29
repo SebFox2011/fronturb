@@ -5,7 +5,7 @@ import "./scss/slick-slider.scss"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-import { Redirect, Route, Router, Switch } from "react-router-dom"
+import { Route, Router, Switch } from "react-router-dom"
 
 import ForgotPassword from "./components/auth/ForgotPassword/ForgotPassword"
 import Home from "./components/Home"

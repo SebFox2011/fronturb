@@ -40,7 +40,7 @@ const Topbar = ({
           component="a"
           underline="none"
           href="/"
-          title="webbee"
+          title="La Turbine"
           height={{ xs: 28, md: 32 }}
           width={45}
         >
