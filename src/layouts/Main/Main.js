@@ -1,4 +1,4 @@
-import { Footer, Sidebar, Topbar } from './components';
+import { Footer, SidebarClient, Topbar } from './components';
 import React, { useState } from 'react';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -64,7 +64,7 @@ const Main = ({
           </Container>
         </AppBar>
       </HideOnScroll>
-      <Sidebar
+      <SidebarClient
         onClose={handleSidebarClose}
         open={openSidebar}
         variant="temporary"

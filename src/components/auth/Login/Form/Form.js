@@ -1,7 +1,7 @@
 import * as yup from "yup"
 
 import React, { useState } from "react"
-
+import { useDispatch, useSelector } from "react-redux"
 import Box from "@material-ui/core/Box"
 import Button from "@material-ui/core/Button"
 import { Checkbox } from "@material-ui/core"
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 import TextField from "@material-ui/core/TextField"
 import Typography from "@material-ui/core/Typography"
 import { logIn } from "../../../../reducers/currentUser"
-import { useDispatch } from "react-redux"
+import Snackbar from "@material-ui/core/Snackbar"
 import { useFormik } from "formik"
 
 const validationSchema = yup.object({
@@ -35,6 +35,7 @@ const Form = () => {
   const dispatch = useDispatch()
   const [seePassword, setSeePassword] = useState(false)
   const [openSession, setOpenSession] = useState(false)
+  const loginState = useSelector((state) => state.currentUser.loginState)
   const initialValues = {
     email: "",
     password: "",
@@ -49,6 +50,13 @@ const Form = () => {
     validationSchema: validationSchema,
     onSubmit,
   })
+
+  const snackBar =
+    loginState === "failure" ? (
+      <Snackbar message="Identifiant ou mot de passe invalide" open />
+    ) : (
+      ""
+    )
 
   return (
     <Box>
@@ -197,6 +205,7 @@ const Form = () => {
             </Box>
           </Grid>
         </Grid>
+        {snackBar}
       </form>
     </Box>
   )

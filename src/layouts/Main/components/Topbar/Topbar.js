@@ -1,3 +1,6 @@
+import { useDispatch, useSelector } from "react-redux"
+
+import Avatar from "@material-ui/core/Avatar"
 import Box from "@material-ui/core/Box"
 import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
@@ -9,8 +12,8 @@ import { colors } from "@material-ui/core"
 import { logOut } from "../../../../reducers/currentUser"
 import logo from "../../../../turbine_dentaire.png"
 import paletteTypes from "../../../../common/paletteTypes"
-import { useDispatch } from "react-redux"
 import { useTheme } from "@material-ui/core/styles"
+
 const Topbar = ({
   themeMode,
   themeToggler,
@@ -18,10 +21,11 @@ const Topbar = ({
   onSidebarOpen,
   paletteType,
 }) => {
+  const user = useSelector((state) => state.currentUser.email)
   const dispatch = useDispatch()
   const theme = useTheme()
 
-  const handleDeconnexion = (event)=> {
+  const handleDeconnexion = (event) => {
     event.preventDefault()
     dispatch(logOut())
   }
@@ -163,7 +167,7 @@ const Topbar = ({
               Déconnexion
             </Button>
           </Box>
-          <Box>
+          <Box marginX={2}>
             <Button
               variant="contained"
               color="primary"
@@ -175,6 +179,11 @@ const Topbar = ({
               Commander
             </Button>
           </Box>
+          {user && (
+            <Box marginX={2}>
+              <Avatar alt={user}>{user.charAt(0).toUpperCase()}</Avatar>
+            </Box>
+          )}
         </Box>
       </Box>
     </Box>

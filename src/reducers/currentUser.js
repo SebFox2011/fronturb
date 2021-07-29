@@ -45,7 +45,7 @@ export function logIn(email, password) {
         effect: {
           json: { email, password },
           method: "POST",
-          url: "http://localhost:3002/api/v1/sessions",
+          url: "https://tubine.sebfox2011.repl.co/api/v1/sessions",
         },
         commit: { type: LOGIN_SUCCESS, payload: { email } },
         rollback: { type: LOGIN_FAILURE },

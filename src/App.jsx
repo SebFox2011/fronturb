@@ -67,7 +67,6 @@ function App() {
         />
         <Route
           exact
-          path="/page-not-found"
           render={(matchProps) => (
             <WithLayout
               {...matchProps}
@@ -76,7 +75,6 @@ function App() {
             />
           )}
         />
-        <Redirect to="/page-not-found" />
       </Switch>
     </Router>
   )
